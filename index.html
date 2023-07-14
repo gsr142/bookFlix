@@ -10,191 +10,231 @@
     <nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" alt="BookFlix: suggestions of books and movies" width="112" height="28">
+            <img src="https://bulma.io/images/bulma-logo.png" alt="BookFlix: suggestions of books and movies" width="112" height="28" >
             <h1>BookFlix</h1>
           </a>
-      
+        <!--       
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span> 
           </a>
+        -->
         </div>
       </nav>
 
     <div class="box has-background-success has-text-centered has-text-weight-bold is-size-3	">
         <br/>Welcome to BookFlix. Answer 5 questions and we will suggest you a book to read and a movie to watch.
         <br/>
+        <!-- added bottom margin to the intro -->
+        <br/>
     </div>
 
-    <div class="container is-align-content-center" >
-        <div class="dropdown is-active is-justify-content-center">
-            <div class="dropdown-trigger">
+    <!-- removed-align-content-center -->
+    <!-- renamed class from container to columns -->
+    <div class="columns" >
+
+        <!-- removed justify-content-center -->
+        <div class="column is-offset-1 is-2 dropdown is-active">
+            <!-- <div class="dropdown-trigger"> -->
             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
                 <span>Question 1:</span>
+                <!-- slightly expands the question blocks horizontally -->
                 <span class="icon is-small">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                <!-- commented out because no change was observed -->
+                <!-- <i class="fas fa-angle-down" aria-hidden="true"></i> -->
                 </span>
             </button>
-            </div>
+            <!-- </div> -->
+            <!-- position the drop down menu under the button -->
             <div class="dropdown-menu" id="dropdown-menu" role="menu">
             <div class="dropdown-content">
                 <p href="#" class="dropdown-item dropdown-divider">
-                 wjefhuegbefniawfjnkqejbgkbrngievmalkmkvldnvnnnnnnnnnnnnnnnnnnnnnnnn
+                 ~Type question 1 here~
                 </p>
-
+                <br/>
+                <br/>
                 <a href="#" class="dropdown-item">
-                Alternative 1
-                </a>
-                <a class="dropdown-item">
-                Alternative 2
+                ~Type alternative 1 here~
                 </a>
                 <a href="#" class="dropdown-item">
-                Alternative 3
+                ~Type alternative 2 here~
                 </a>
                 <a href="#" class="dropdown-item">
-                Alternative 4
+                ~Type alternative 3 here~
+                </a>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 4 here~
                 </a>
                 <hr class="dropdown-item">
             </div>
             </div>
-
-
-            <div class="dropdown is-active">
-                <div class="dropdown-trigger">
-                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                    <span>Question 1:</span>
-                    <span class="icon is-small">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                </button>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                <div class="dropdown-content">
-                    <p href="#" class="dropdown-item dropdown-divider">
-                     wjefhuegbefniawfjnkqejbgkbrngievmalkmkvldnvnnnnnnnnnnnnnnnnnnnnnnnn
-                    </p>
-    
-                    <a href="#" class="dropdown-item">
-                    Alternative 1
-                    </a>
-                    <a class="dropdown-item">
-                    Alternative 2
-                    </a>
-                    <a href="#" class="dropdown-item">
-                    Alternative 3
-                    </a>
-                    <a href="#" class="dropdown-item">
-                    Alternative 4
-                    </a>
-                    <hr class="dropdown-item">
-                </div>
-                </div>
-
-
-                <div class="dropdown is-active">
-                    <div class="dropdown-trigger">
-                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                        <span>Question 1:</span>
-                        <span class="icon is-small">
-                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                        </span>
-                    </button>
-                    </div>
-                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                    <div class="dropdown-content">
-                        <p href="#" class="dropdown-item dropdown-divider">
-                         wjefhuegbefniawfjnkqejbgkbrngievmalkmkvldnvnnnnnnnnnnnnnnnnnnnnnnnn
-                        </p>
-        
-                        <a href="#" class="dropdown-item">
-                        Alternative 1
-                        </a>
-                        <a class="dropdown-item">
-                        Alternative 2
-                        </a>
-                        <a href="#" class="dropdown-item">
-                        Alternative 3
-                        </a>
-                        <a href="#" class="dropdown-item">
-                        Alternative 4
-                        </a>
-                        <hr class="dropdown-item">
-                    </div>
-                    </div>
-
-
-                    <div class="dropdown is-active">
-                        <div class="dropdown-trigger">
-                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                            <span>Question 1:</span>
-                            <span class="icon is-small">
-                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                            </span>
-                        </button>
-                        </div>
-                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                        <div class="dropdown-content">
-                            <p href="#" class="dropdown-item dropdown-divider">
-                             wjefhuegbefniawfjnkqejbgkbrngievmalkmkvldnvnnnnnnnnnnnnnnnnnnnnnnnn
-                            </p>
-            
-                            <a href="#" class="dropdown-item">
-                            Alternative 1
-                            </a>
-                            <a class="dropdown-item">
-                            Alternative 2
-                            </a>
-                            <a href="#" class="dropdown-item">
-                            Alternative 3
-                            </a>
-                            <a href="#" class="dropdown-item">
-                            Alternative 4
-                            </a>
-                            <hr class="dropdown-item">
-                        </div>
-                        </div>
-
-
-                        <div class="dropdown is-active">
-                            <div class="dropdown-trigger">
-                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                                <span>Question 1:</span>
-                                <span class="icon is-small">
-                                <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                            </button>
-                            </div>
-                            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                            <div class="dropdown-content">
-                                <p href="#" class="dropdown-item dropdown-divider">
-                                 wjefhuegbefniawfjnkqejbgkbrngievmalkmkvldnvnnnnnnnnnnnnnnnnnnnnnnnn
-                                </p>
-                
-                                <a href="#" class="dropdown-item">
-                                Alternative 1
-                                </a>
-                                <a class="dropdown-item">
-                                Alternative 2
-                                </a>
-                                <a href="#" class="dropdown-item">
-                                Alternative 3
-                                </a>
-                                <a href="#" class="dropdown-item">
-                                Alternative 4
-                                </a>
-                                <hr class="dropdown-item">
-                            </div>
-                            </div>
         </div>
 
+        <!-- removed justify-content-center -->
+        <div class="column is-2 dropdown is-active">
+            <!-- <div class="dropdown-trigger"> -->
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span>Question 2:</span>
+                <!-- slightly expands the question blocks horizontally -->
+                <span class="icon is-small">
+                <!-- commented out because no change was observed -->
+                <!-- <i class="fas fa-angle-down" aria-hidden="true"></i> -->
+                </span>
+            </button>
+            <!-- </div> -->
+            <!-- position the drop down menu under the button -->
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+                <p href="#" class="dropdown-item dropdown-divider">
+                 ~Type question 2 here~
+                </p>
+                <br/>
+                <br/>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 1 here~
+                </a>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 2 here~
+                </a>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 3 here~
+                </a>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 4 here~
+                </a>
+                <hr class="dropdown-item">
+            </div>
+            </div>
+        </div>
 
+        <!-- removed justify-content-center -->
+        <div class="column is-2 dropdown is-active">
+            <!-- <div class="dropdown-trigger"> -->
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span>Question 3:</span>
+                <!-- slightly expands the question blocks horizontally -->
+                <span class="icon is-small">
+                <!-- commented out because no change was observed -->
+                <!-- <i class="fas fa-angle-down" aria-hidden="true"></i> -->
+                </span>
+            </button>
+            <!-- </div> -->
+            <!-- position the drop down menu under the button -->
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+                <p href="#" class="dropdown-item dropdown-divider">
+                 ~Type question 3 here~
+                </p>
+                <br/>
+                <br/>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 1 here~
+                </a>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 2 here~
+                </a>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 3 here~
+                </a>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 4 here~
+                </a>
+                <hr class="dropdown-item">
+            </div>
+            </div>
+        </div>
 
+        <!-- removed justify-content-center -->
+        <div class="column is-2 dropdown is-active">
+            <!-- <div class="dropdown-trigger"> -->
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span>Question 4:</span>
+                <!-- slightly expands the question blocks horizontally -->
+                <span class="icon is-small">
+                <!-- commented out because no change was observed -->
+                <!-- <i class="fas fa-angle-down" aria-hidden="true"></i> -->
+                </span>
+            </button>
+            <!-- </div> -->
+            <!-- position the drop down menu under the button -->
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+                <p href="#" class="dropdown-item dropdown-divider">
+                 ~Type question 4 here~
+                </p>
+                <br/>
+                <br/>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 1 here~
+                </a>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 2 here~
+                </a>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 3 here~
+                </a>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 4 here~
+                </a>
+                <hr class="dropdown-item">
+            </div>
+            </div>
+        </div>
 
-
-
-
+        <!-- removed justify-content-center -->
+        <div class="column is-2 dropdown is-active">
+            <!-- <div class="dropdown-trigger"> -->
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span>Question 5:</span>
+                <!-- slightly expands the question blocks horizontally -->
+                <span class="icon is-small">
+                <!-- commented out because no change was observed -->
+                <!-- <i class="fas fa-angle-down" aria-hidden="true"></i> -->
+                </span>
+            </button>
+            <!-- </div> -->
+            <!-- position the drop down menu under the button -->
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+                <p href="#" class="dropdown-item dropdown-divider">
+                 ~Type question 5 here~
+                </p>
+                <br/>
+                <br/>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 1 here~
+                </a>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 2 here~
+                </a>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 3 here~
+                </a>
+                <a href="#" class="dropdown-item">
+                ~Type alternative 4 here~
+                </a>
+                <hr class="dropdown-item">
+            </div>
+            </div>
+        </div>
     </div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
 
     <script src="./assets/js/script.js"></script>
 </body>
