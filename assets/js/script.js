@@ -18,3 +18,13 @@ var streamingAPI = "https://api.watchmode.com/v1/list-titles/?apiKey=" + streamK
 //     .then(function(data){
 //         console.log(data);
 //     })
+
+
+        // // Initialize dropdown functionality
+        // var dropdown = document.querySelector('.dropdown');
+        // dropdown.addEventListener('click', function(event) {
+        //     event.stopPropagation();
+        //     dropdown.classList.toggle('is-active');
+        // });
+
+        
