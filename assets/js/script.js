@@ -13,7 +13,7 @@ var saveAnswer = function (event) {
     answer.push(answer1, answer2, answer3, answer4, answer5);
     localStorage.setItem("visited", JSON.stringify(visited));
     localStorage.setItem("answer", JSON.stringify(answer));
-
+    document.location.replace('results.html')
 }
 submitbtn.addEventListener("submit", saveAnswer)
 

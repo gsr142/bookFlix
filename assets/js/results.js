@@ -1,3 +1,4 @@
+// IMPORTANT!!!!!!!!!!!!!!!!!! When testing the books API please comment out lines 23-44 so we dont burn all of our API usage
 var booksApiKey = "AIzaSyBzxk-Jd5sokQW1oRM9XJS4Np1hbEmum1I"
 var booksAPI = "https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key="+booksApiKey
 // grabs user selections from local storage
@@ -19,25 +20,25 @@ var streamingAPI = "https://api.watchmode.com/v1/list-titles/?apiKey=" + streamK
 
 
 // Use fetch to query the API, get suggestions.
-function getMovie (){
-    fetch(streamingAPI)
-    .then(function (response) {
-        if (response.ok) {
-            response.json().then(function (data){
+// function getMovie (){
+//     fetch(streamingAPI)
+//     .then(function (response) {
+//         if (response.ok) {
+//             response.json().then(function (data){
                 
-                console.log(data.titles)
+//                 console.log(data.titles)
                 
 
-            });
-        } else {
-            alert('Error: ' + response.statusText);
-        }
-    })
-    .catch(function(error) {
-        alert('Unable to connect to the server')
-    });
-}
+//             });
+//         } else {
+//             alert('Error: ' + response.statusText);
+//         }
+//     })
+//     .catch(function(error) {
+//         alert('Unable to connect to the server')
+//     });
+// }
 
-//button for testing only
-var button = document.getElementById('button')
-button.addEventListener('click', getMovie)
+// //button for testing only. will be automatic on deployment
+// var button = document.getElementById('button')
+// button.addEventListener('click', getMovie)
