@@ -7,30 +7,24 @@ var getChoices = localStorage.getItem('answer');
 var movieGenre = JSON.parse(getChoices)[0];
 var streamSource = JSON.parse(getChoices)[4];
 var movieYear = JSON.parse(getChoices)[3];
+//APIquery requires 8digit date written as YYYYMMDD
 var releaseDateStart = (movieYear + "0101")
 var releaseDateEnd = (Number(movieYear)) + 9
 releaseDateEnd = releaseDateEnd.toString() + "1231"
-console.log(movieYear)
-console.log(releaseDateStart)
-console.log(releaseDateEnd)
 
 
-
+// API key and url for Watchmode. Search by year and genre to get title suggestions for each streaming service
 var streamKey = "CmuYlyfZgLsyiWCJA2h829wGh6WRb77CHmcowDQP"
-var streamingAPI = "https://api.watchmode.com/v1/list-titles/?apiKey=" + streamKey + "&genres="+ movieGenre +"&types=movie&sources="+streamSource+"&source_types=sub&release_date_start="+releaseDateStart+"&release_date_end="+releaseDateEnd+"&sort_by=relevance_desc"
+var streamingAPI = "https://api.watchmode.com/v1/list-titles/?apiKey=" + streamKey + "&genres="+ movieGenre +"&types=movie&source_ids="+streamSource+"&source_types=sub&release_date_start="+releaseDateStart+"&release_date_end="+releaseDateEnd+"&sort_by=relevance_desc"
 
 
-
-console.log(localStorage)
-console.log(streamingAPI)
-
-
+// Use fetch to query the API, get suggestions.
 function getMovie (){
     fetch(streamingAPI)
     .then(function (response) {
         if (response.ok) {
             response.json().then(function (data){
-                console.log(data);
+                
                 console.log(data.titles)
                 
 
