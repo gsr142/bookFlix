@@ -42,3 +42,10 @@ var streamingAPI = "https://api.watchmode.com/v1/list-titles/?apiKey=" + streamK
 // //button for testing only. will be automatic on deployment
 // var button = document.getElementById('button')
 // button.addEventListener('click', getMovie)
+
+
+
+// added button to return to initial search page
+document.getElementById('return').addEventListener('click', function() {
+    window.location.href = 'index.html';
+});
