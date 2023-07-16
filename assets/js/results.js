@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     // IMPORTANT!!!!!!!!!!!!!!!!!! When testing the books API please comment out lines 23-44 so we dont burn all of our API usage
     var booksApiKey = "AIzaSyBzxk-Jd5sokQW1oRM9XJS4Np1hbEmum1I"
@@ -15,21 +14,99 @@ $(document).ready(function() {
     var releaseDateEnd = (Number(movieYear)) + 9
     releaseDateEnd = releaseDateEnd.toString() + "1231"
 
-    var movieDisplayArr1 = ['#result1-movies-image', '#result1-title', '#result1-stars', '#result1-genre', '#result1-description'];
-    var movieDisplayArr2 = ['#result2-movies-image', '#result2-title', '#result2-stars', '#result2-genre', '#result2-description']
-    var movieDisplayArr3 = ['#result3-movies-image', '#result3-title', '#result3-stars', '#result3-genre', '#result3-description']
-    var movieDisplayArr4 = ['#result4-movies-image', '#result4-title', '#result4-stars', '#result4-genre', '#result4-description']
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // API key and url for Watchmode. Search by year and genre to get title suggestions for each streaming service
     var streamKey = "CmuYlyfZgLsyiWCJA2h829wGh6WRb77CHmcowDQP"
     var streamingAPI = "https://api.watchmode.com/v1/list-titles/?apiKey=" + streamKey + "&genres="+ movieGenre +"&types=movie&source_ids="+streamSource+"&source_types=sub&release_date_start="+releaseDateStart+"&release_date_end="+releaseDateEnd+"&sort_by=relevance_desc"
     var omdbKey =  "91e08ef";
     var omdbInfo = "https://www.omdbapi.com/?apikey="+omdbKey+"&plot=full&i="
-    var omdbPoster = "https://www.omdbapi.com/?apikey="+omdbKey+"&i="
-
+ 
+    var movieDisplayArr1 = ['#result1-movies-image', '#result1-title', '#result1-stars', '#result1-genre', '#result1-description'];
+    var movieDisplayArr2 = ['#result2-movies-image', '#result2-title', '#result2-stars', '#result2-genre', '#result2-description']
+    var movieDisplayArr3 = ['#result3-movies-image', '#result3-title', '#result3-stars', '#result3-genre', '#result3-description']
+    var movieDisplayArr4 = ['#result4-movies-image', '#result4-title', '#result4-stars', '#result4-genre', '#result4-description']
+ 
+ 
     //Use fetch to query the API, get suggestions.
     function getMovie (){
         fetch(streamingAPI)
