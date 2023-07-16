@@ -20,7 +20,7 @@ $(document).ready(function() {
     var streamKey = "CmuYlyfZgLsyiWCJA2h829wGh6WRb77CHmcowDQP"
     var streamingAPI = "https://api.watchmode.com/v1/list-titles/?apiKey=" + streamKey + "&genres="+ movieGenre +"&types=movie&source_ids="+streamSource+"&source_types=sub&release_date_start="+releaseDateStart+"&release_date_end="+releaseDateEnd+"&sort_by=relevance_desc"
     var omdbKey =  "91e08ef";
-    var omdbInfo = "https://www.omdbapi.com/?apikey="+omdbKey+"&i="
+    var omdbInfo = "https://www.omdbapi.com/?apikey="+omdbKey+"&plot=full&i="
     var omdbPoster = "https://www.omdbapi.com/?apikey="+omdbKey+"&i="
 
     //Use fetch to query the API, get suggestions.
@@ -50,8 +50,12 @@ $(document).ready(function() {
             .then(function (response){
                 if (response.ok) {
                     response.json().then(function (data){
-                        console.log(data.Poster)
+                        console.log(data)
                         $('#result1-movies-image').attr('src', data.Poster);
+                        $('#result1-title').text(data.Title);
+                        $('#result1-stars').text('Starring: '+data.Actors);
+                        $('#result1-genre').text('Genre: '+data.Genre);
+                        $('#result1-description').text('Plot: '+data.Plot)
                     });
                 }
             });
