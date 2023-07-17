@@ -40,11 +40,12 @@ var streamingAPI = "https://api.watchmode.com/v1/list-titles/?apiKey=" + streamK
 // }
 
 // //button for testing only. will be automatic on deployment
-// var button = document.getElementById('button')
-// button.addEventListener('click', getBook)
+var button = document.getElementById('button')
+button.addEventListener('click', getBook)
 
 var bookGenre = JSON.parse(getChoices)[1];
 var bookYear = JSON.parse(getChoices)[2];
+// console.log(bookGenre);
 var yearRange = bookYear.split('-');
 var startYear = parseInt(yearRange[0]);
 var endYear = parseInt(yearRange[1]);
@@ -58,15 +59,7 @@ function getBook() {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    var matchedItems = [];
-                    for (var i = 0; i < data.items.length; i++) {
-                        var publishedDate = data.items[i].volumeInfo.publishedDate;
-                        var yearPublished = parseInt(publishedDate.substring(0, 4));
-                        if (yearArray.includes(yearPublished)) {
-                            matchedItems.push(data.items[i]);
-                        }
-                    }
-                    console.log(matchedItems);
+                    displayBook(data);
                 });
             } else {
                 alert("Error");
@@ -77,6 +70,64 @@ function getBook() {
         });
 }
 
+function displayBook(data) {
+
+    var matchedItems = [];
+    var Container = document.getElementById('bookContainer')
+    for (var i = 0; i < data.items.length; i++) {
+        var publishedDate = data.items[i].volumeInfo.publishedDate;
+        var yearPublished = parseInt(publishedDate.substring(0, 4));
+        if (yearArray.includes(yearPublished)) {
+            matchedItems.push(data.items[i]);
+
+            var title = data.items[i].volumeInfo.title;
+            var author = data.items[i].volumeInfo.authors;
+            var category = data.items[i].volumeInfo.categories;
+            var description = data.items[i].volumeInfo.description;
+            var images = data.items[i].volumeInfo.imageLinks.smallThumbnail;
+
+            var columnsDiv = document.createElement('div');
+            columnsDiv.classList.add('columns');
+
+            var imageColumnDiv = document.createElement('div');
+            imageColumnDiv.classList.add('column', 'is-3');
+
+            var bookImage = document.createElement('img');
+            bookImage.src = images;
+            bookImage.alt = title;
+            bookImage.width = '120';
+            bookImage.height = '150';
+
+            var detailsColumnDiv = document.createElement('div');
+            detailsColumnDiv.classList.add('column');
+
+            var resultContainer = document.createElement('ul');
+
+            var titleEl = document.createElement('li');
+            titleEl.textContent = 'Title: ' + title;
+
+            var authorEl = document.createElement('li');
+            authorEl.textContent = 'Author: ' + author;
+
+            var categoryEl = document.createElement('li');
+            categoryEl.textContent = 'Category: ' + category;
+
+            var descriptionEl = document.createElement('li');
+            descriptionEl.textContent = 'Description: ' + description;
+
+            Container.appendChild(columnsDiv);
+            columnsDiv.appendChild(imageColumnDiv);
+            imageColumnDiv.appendChild(bookImage);
+            columnsDiv.appendChild(detailsColumnDiv);
+            detailsColumnDiv.appendChild(resultContainer);
+            resultContainer.appendChild(titleEl);
+            resultContainer.appendChild(authorEl);
+            resultContainer.appendChild(categoryEl);
+            resultContainer.appendChild(descriptionEl);
+        }
+    }
+    console.log(matchedItems);
+}
 // added button to return to initial search page
 document.getElementById('return').addEventListener('click', function () {
     window.location.href = 'index.html';
