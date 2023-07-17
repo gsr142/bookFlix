@@ -1,6 +1,6 @@
 // IMPORTANT!!!!!!!!!!!!!!!!!! When testing the books API please comment out lines 23-44 so we dont burn all of our API usage
 var booksApiKey = "AIzaSyBzxk-Jd5sokQW1oRM9XJS4Np1hbEmum1I"
-var booksAPI = "https://www.googleapis.com/books/v1/volumes?q=subject=" + bookGenre + "&startIndex=0&maxResults=40&key=" + booksApiKey
+var booksAPI = "https://www.googleapis.com/books/v1/volumes?q=subject="+bookGenre+"&startIndex=0&maxResults=40&key="+booksApiKey;
 // grabs user selections from local storage
 // index keys are 0=movieGenre 1=bookGenre 2=bookYear 3=movieYear 4=streamSource
 var getChoices = localStorage.getItem('answer');
@@ -43,6 +43,8 @@ var streamingAPI = "https://api.watchmode.com/v1/list-titles/?apiKey=" + streamK
 var button = document.getElementById('button')
 button.addEventListener('click', getBook)
 
+
+
 var bookGenre = JSON.parse(getChoices)[1];
 var bookYear = JSON.parse(getChoices)[2];
 // console.log(bookGenre);
@@ -73,13 +75,17 @@ function getBook() {
 function displayBook(data) {
 
     var matchedItems = [];
-    var Container = document.getElementById('bookContainer')
+    var Container = document.getElementById('bookContainer');
+
+    Container.innerHTML = '';
+
     for (var i = 0; i < data.items.length; i++) {
         var publishedDate = data.items[i].volumeInfo.publishedDate;
         var yearPublished = parseInt(publishedDate.substring(0, 4));
+
         if (yearArray.includes(yearPublished)) {
             matchedItems.push(data.items[i]);
-
+            
             var title = data.items[i].volumeInfo.title;
             var author = data.items[i].volumeInfo.authors;
             var category = data.items[i].volumeInfo.categories;
