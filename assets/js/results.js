@@ -23,90 +23,24 @@ $(document).ready(function () {
     var omdbKey = "91e08ef";
     var omdbInfo = "https://www.omdbapi.com/?apikey=" + omdbKey + "&plot=full&i="
 
-    // var movieDisplayArr1 = ['#result1-movies-image', '#result1-title', '#result1-stars', '#result1-genre', '#result1-description'];
-    // var movieDisplayArr2 = ['#result2-movies-image', '#result2-title', '#result2-stars', '#result2-genre', '#result2-description']
-    // var movieDisplayArr3 = ['#result3-movies-image', '#result3-title', '#result3-stars', '#result3-genre', '#result3-description']
-    // var movieDisplayArr4 = ['#result4-movies-image', '#result4-title', '#result4-stars', '#result4-genre', '#result4-description']
 
     function createMovieDisplay(index) {
-        return ['#result'+index+'-movies-image', '#result'+index+'-title', '#result'+index+'-stars', '#result'+index+'-genre', '#result'+index+'-description'];
-
+        return ['#result' + index + '-movies-image', '#result' + index + '-title', '#result' + index + '-stars', '#result' + index + '-genre', '#result' + index + '-description'];
     }
 
-    //Use fetch to query the API, get suggestions.
-    function getMovie() {
-        fetch(streamingAPI)
-            .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (data) {
-
-                        // console.log(data);
-                        if (data.titles.length === 0) {
-                            console.log("no data found");
-                        }
-                        for(var i=0; i<data.titles.length && i<4; ++i){
-                            getMovieInfo(data.titles[i].imdb_id, createMovieDisplay(i))
-                        }
-                        // var imdbId1 = data.titles[0].imdb_id
-                        // var imdbId2 = data.titles[1].imdb_id
-                        // var imdbId3 = data.titles[2].imdb_id
-                        // var imdbId4 = data.titles[3].imdb_id
-                        // console.log(imdbId1)
-                        // console.log(imdbId2)
-                        // console.log(imdbId3)
-                        // console.log(imdbId4)
-                        // getMovieInfo(imdbId1, movieDisplayArr1);
-                        // getMovieInfo(imdbId2, movieDisplayArr2);
-                        // getMovieInfo(imdbId3, movieDisplayArr3);
-                        // getMovieInfo(imdbId4, movieDisplayArr4)
-
-
-                    });
-                } else {
-                    alert('Error: ' + response.statusText);
-                }
-            })
-            .catch(function (error) {
-                alert('Unable to connect to the server')
-            });
-    }
-    function getMovieInfo(imdbId, arr) {
-        var getOmdbInfo = omdbInfo + imdbId;
-        console.log(getOmdbInfo)
-        fetch(getOmdbInfo)
-            .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (data) {
-                        console.log(data)
-                        $(arr[0]).attr('src', data.Poster);
-                        $(arr[1]).text(data.Title);
-                        $(arr[2]).text('Starring: ' + data.Actors);
-                        $(arr[3]).text('Genre: ' + data.Genre);
-                        $(arr[4]).text('Plot: ' + data.Plot)
-                    });
-                }
-            });
-    }
-
-
-
-
-
-
-    //button for testing only. will be automatic on deployment
-    var button = document.getElementById('button')
-    button.addEventListener('click', getMovie)
-
-    // added button to return to initial search page
-    document.getElementById('return').addEventListener('click', function () {
-        window.location.href = 'index.html';
-    });
-
-
+    //             });
+    //         } else {
+    //             alert('Error: ' + response.statusText);
+    //         }
+    //     })
+    //     .catch(function(error) {
+    //         alert('Unable to connect to the server')
+    //     });
+    // }
 
     // //button for testing only. will be automatic on deployment
-    // var button = document.getElementById('button')
-    // button.addEventListener('click', getBook)
+    var button = document.getElementById('button')
+    button.addEventListener('click', getBook)
 
 
 
@@ -125,9 +59,10 @@ $(document).ready(function () {
         fetch(booksAPI)
             .then(function (response) {
                 if (response.ok) {
-                    response.json().then(function (data) {
-                        displayBook(data);
-                    });
+                    response.json()
+                        .then(function (data) {
+                            displayBook(data);
+                        });
                 } else {
                     alert("Error");
                 }
@@ -197,10 +132,50 @@ $(document).ready(function () {
                 resultContainer.appendChild(descriptionEl);
             }
         }
-        console.log(matchedItems);
+
+        //Use fetch to query the API, get suggestions.
+        function getMovie() {
+            fetch(streamingAPI)
+                .then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (data) {
+
+                            // console.log(data);
+                            if (data.titles.length === 0) {
+                                console.log("no data found");
+                            }
+                            for (var i = 0; i < data.titles.length && i < 4; ++i) {
+                                getMovieInfo(data.titles[i].imdb_id, createMovieDisplay(i))
+                            }
+                        });
+                    } else {
+                        alert('Error: ' + response.statusText);
+                    }
+                })
+                .catch(function (error) {
+                    alert('Unable to connect to the server')
+                });
+        }
+        function getMovieInfo(imdbId, arr) {
+            var getOmdbInfo = omdbInfo + imdbId;
+            console.log(getOmdbInfo)
+            fetch(getOmdbInfo)
+                .then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (data) {
+                            console.log(data)
+                            $(arr[0]).attr('src', data.Poster);
+                            $(arr[1]).text(data.Title);
+                            $(arr[2]).text('Starring: ' + data.Actors);
+                            $(arr[3]).text('Genre: ' + data.Genre);
+                            $(arr[4]).text('Plot: ' + data.Plot)
+                        });
+                    }
+                });
+        }
+
+        document.getElementById('return').addEventListener('click', function () {
+            window.location.href = 'index.html';
+        });
     }
-    // added button to return to initial search page
-    document.getElementById('return').addEventListener('click', function () {
-        window.location.href = 'index.html';
-    });
-})
+});
