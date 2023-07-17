@@ -1,8 +1,7 @@
 
 $(document).ready(function() {
     // IMPORTANT!!!!!!!!!!!!!!!!!! When testing the books API please comment out lines 23-44 so we dont burn all of our API usage
-    var booksApiKey = "AIzaSyBzxk-Jd5sokQW1oRM9XJS4Np1hbEmum1I"
-    var booksAPI = "https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key="+booksApiKey
+    
     // grabs user selections from local storage
     // index keys are 0=movieGenre 1=bookGenre 2=bookYear 3=movieYear 4=streamSource
     var getChoices = localStorage.getItem('answer');
@@ -90,62 +89,60 @@ $(document).ready(function() {
             });
     }
 
-   
-
-
-
-
     //button for testing only. will be automatic on deployment
-    var button = document.getElementById('button')
-    button.addEventListener('click', getMovie)
+    //var button = document.getElementById('button')
+    //button.addEventListener('click', getMovie)
 
     // added button to return to initial search page
     document.getElementById('return').addEventListener('click', function() {
         window.location.href = 'index.html';
     });
 
-})
 
-// //button for testing only. will be automatic on deployment
-// var button = document.getElementById('button')
-// button.addEventListener('click', getBook)
 
-var bookGenre = JSON.parse(getChoices)[1];
-var bookYear = JSON.parse(getChoices)[2];
-var yearRange = bookYear.split('-');
-var startYear = parseInt(yearRange[0]);
-var endYear = parseInt(yearRange[1]);
+    // //button for testing only. will be automatic on deployment
+    var button = document.getElementById('button')
+    button.addEventListener('click', getBook)
+    var bookGenre = JSON.parse(getChoices)[1];
+    var booksApiKey = "AIzaSyBzxk-Jd5sokQW1oRM9XJS4Np1hbEmum1I"
+    var booksAPI = "https://www.googleapis.com/books/v1/volumes?q=insubject:"+bookGenre+"&maxResults=40&key="+booksApiKey
+    
+    var bookYear = JSON.parse(getChoices)[2];
+    var yearRange = bookYear.split('-');
+    var startYear = parseInt(yearRange[0]);
+    var endYear = parseInt(yearRange[1]);
 
-var yearArray = [];
-for (var year = startYear; year <= endYear; year++) {
-    yearArray.push(year);
-};
-function getBook() {
-    fetch(booksAPI)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    var matchedItems = [];
-                    for (var i = 0; i < data.items.length; i++) {
-                        var publishedDate = data.items[i].volumeInfo.publishedDate;
-                        var yearPublished = parseInt(publishedDate.substring(0, 4));
-                        if (yearArray.includes(yearPublished)) {
-                            matchedItems.push(data.items[i]);
+    var yearArray = [];
+    for (var year = startYear; year <= endYear; year++) {
+        yearArray.push(year);
+    };
+    function getBook() {
+        fetch(booksAPI)
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (data) {
+                        console.log(data)
+                        var matchedItems = [];
+                        for (var i = 0; i < data.items.length; i++) {
+                            var publishedDate = data.items[i].volumeInfo.publishedDate;
+                            var yearPublished = parseInt(publishedDate.substring(0, 4));
+                            if (yearArray.includes(yearPublished)) {
+                                matchedItems.push(data.items[i]);
+                            }
                         }
-                    }
-                    console.log(matchedItems);
-                });
-            } else {
-                alert("Error");
-            }
-        })
-        .catch(function (error) {
-            alert("Unable to connect to server");
-        });
-}
+                        console.log(matchedItems);
+                    });
+                } else {
+                    alert("Error");
+                }
+            })
+            .catch(function (error) {
+                alert("Unable to connect to server");
+            });
+    }
 
-// added button to return to initial search page
-document.getElementById('return').addEventListener('click', function () {
-    window.location.href = 'index.html';
+    // added button to return to initial search page
+    document.getElementById('return').addEventListener('click', function () {
+        window.location.href = 'index.html';
+    })
 });
-
