@@ -105,7 +105,7 @@ $(document).ready(function() {
     button.addEventListener('click', getBook)
     var bookGenre = JSON.parse(getChoices)[1];
     var booksApiKey = "AIzaSyBzxk-Jd5sokQW1oRM9XJS4Np1hbEmum1I"
-    var booksAPI = "https://www.googleapis.com/books/v1/volumes?q=insubject:"+bookGenre+"&maxResults=40&key="+booksApiKey
+    var booksAPI = "https://www.googleapis.com/books/v1/volumes?q=subject:"+bookGenre+"&maxResults=40&key="+booksApiKey
     
     var bookYear = JSON.parse(getChoices)[2];
     var yearRange = bookYear.split('-');
