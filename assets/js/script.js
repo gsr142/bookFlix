@@ -8,12 +8,14 @@ var saveAnswer = function (event) {
     var answer3 = document.getElementById('question3').value;
     var answer4 = document.getElementById('question4').value;
     var answer5 = document.getElementById('question5').value;
+    
     var visited = true;
     var answer = [];
     answer.push(answer1, answer2, answer3, answer4, answer5);
+
     localStorage.setItem("visited", JSON.stringify(visited));
     localStorage.setItem("answer", JSON.stringify(answer));
-    document.location.replace('results.html')
+    document.location.href = 'index.html';
 }
 submitbtn.addEventListener("submit", saveAnswer)
 
