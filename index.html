@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bookFlix</title>
+    <!-- added style from Bulma framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <script>
            var checkedVisit = localStorage.getItem("visited");
@@ -13,28 +14,22 @@
     </script>
 </head>
 <body>
-    <nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="https://gsr142.github.io/bookFlix/ ">
-            <img src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="BookFlix: suggestions of books and movies" width="30" height="28" >
+  <nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://gsr142.github.io/bookFlix/ ">
+        <!-- header with placeholder logo and name --> 
+        <img src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="BookFlix: suggestions of books and movies" width="30" height="28" >
             <h1>BookFlix</h1>
           </a>
-        <!--       
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span> 
-          </a>
-        -->
         </div>
       </nav>
-
+    <!-- intro to application -->
     <div class="box has-background-success has-text-centered has-text-weight-bold is-size-3	">
         <br/>Welcome to BookFlix. Answer 5 questions and we will suggest you a book to read and a movie to watch.
         <br/>
-        <!-- added bottom margin to the intro -->
         <br/>
     </div>
+    <!-- sections wrapping all the questions and options adding class and style -->
     <div class="container is-widescreen">
         <div class="notification is-primary has-background-info">
             <div class="card">
@@ -152,12 +147,15 @@
         </div>
       </div>  
       <br>
-<!-- added submit button -->
+<!-- added submit button and attributes-->
 <form id="submit">
   <div class="buttons">
       <button type="submit" class="button is-success is-large is-fullwidth is-focused has-text-weight-bold ">Click to submit your answers</button>
   </div>
 </form>
-<script src="./assets/js/script.js"></script>
+
+
+    <!-- links javascript file to html -->
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
