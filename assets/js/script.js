@@ -40,7 +40,5 @@ var saveAnswer = function (event) {
     
 }
 //runs the function saveAnswer upon clicking the submit button
-submitbtn.addEventListener("click", saveAnswer)
-
-
+submitbtn.addEventListener("submit", saveAnswer)
 

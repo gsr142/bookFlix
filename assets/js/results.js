@@ -2,7 +2,7 @@
 $(document).ready(function () {
     // IMPORTANT!!!!!!!!!!!!!!!!!! When testing the books API please comment out lines 23-44 so we dont burn all of our API usage
     var booksApiKey = "AIzaSyBzxk-Jd5sokQW1oRM9XJS4Np1hbEmum1I"
-    var booksAPI = "https://www.googleapis.com/books/v1/volumes?q=subject=" + bookGenre + "&startIndex=0&maxResults=40&key=" + booksApiKey
+    var booksAPI = "https://www.googleapis.com/books/v1/volumes?q="+bookGenre+"&subject:" + bookGenre + "&startIndex=0&maxResults=40&key=" + booksApiKey
     // grabs user selections from local storage
     // index keys are 0=movieGenre 1=bookGenre 2=bookYear 3=movieYear 4=streamSource
     var getChoices = localStorage.getItem('answer');
@@ -174,7 +174,7 @@ $(document).ready(function () {
                             console.log("no data found");
                         }
                         for (var i = 0; i < data.titles.length && i < 4; ++i) {
-                            getMovieInfo(data.titles[i].imdb_id, createMovieDisplay(i))
+                            getMovieInfo(data.titles[i].imdb_id, createMovieDisplay(i+1))
                         }
                     });
                 } else {
