@@ -1,7 +1,5 @@
 
 $(document).ready(function () {
-
-
     // IMPORTANT!!!!!!!!!!!!!!!!!! When testing the books API please comment out lines 23-44 so we dont burn all of our API usage
     var booksApiKey = "AIzaSyBzxk-Jd5sokQW1oRM9XJS4Np1hbEmum1I"
     var booksAPI = "https://www.googleapis.com/books/v1/volumes?q=subject=" + bookGenre + "&startIndex=0&maxResults=40&key=" + booksApiKey
@@ -39,11 +37,11 @@ $(document).ready(function () {
     // }
 
     // //button for testing only. will be automatic on deployment
-    var button = document.getElementById('button')
-    button.addEventListener('click', getBook())
+    // var button = document.getElementById('button')
+    // button.addEventListener('click', getBook())
 
-
-
+    getBook();
+    getMovie();
     var bookGenre = JSON.parse(getChoices)[1];
     var bookYear = JSON.parse(getChoices)[2];
     // console.log(bookGenre);
@@ -91,12 +89,20 @@ $(document).ready(function () {
                 var category = data.items[i].volumeInfo.categories;
                 var description = data.items[i].volumeInfo.description;
                 var images = data.items[i].volumeInfo.imageLinks.smallThumbnail;
+                var bookid = data.items[i].id;
+                var buyLink = data.items[i].saleInfo.buyLink;
+                var saleability = data.items[i].saleInfo.saleability;
+                var publisher = data.items[i].volumeInfo.publisher;
 
                 var columnsDiv = document.createElement('div');
                 columnsDiv.classList.add('columns');
 
                 var imageColumnDiv = document.createElement('div');
                 imageColumnDiv.classList.add('column', 'is-3');
+
+                var imgBtn = document.createElement('a');
+                imgBtn.setAttribute('type', 'submit');
+                imgBtn.addEventListener('click', displayBookDetail.bind(null, title, author, category, description, images, bookid, buyLink, saleability, publisher, publishedDate));
 
                 var bookImage = document.createElement('img');
                 bookImage.src = images;
@@ -123,7 +129,8 @@ $(document).ready(function () {
 
                 Container.appendChild(columnsDiv);
                 columnsDiv.appendChild(imageColumnDiv);
-                imageColumnDiv.appendChild(bookImage);
+                imageColumnDiv.appendChild(imgBtn);
+                imgBtn.appendChild(bookImage);
                 columnsDiv.appendChild(detailsColumnDiv);
                 detailsColumnDiv.appendChild(resultContainer);
                 resultContainer.appendChild(titleEl);
@@ -132,7 +139,40 @@ $(document).ready(function () {
                 resultContainer.appendChild(descriptionEl);
             }
         }
+        console.log(matchedItems);
 
+    }
+
+    function displayBookDetail(title, author, category, description, images, bookid, buyLink, saleability, publisher, publishedDate) {
+        var modal = document.createElement('div');
+        modal.classList.add('modal', 'is-active');
+        modal.innerHTML = `
+                            <div class="modal-background"></div>
+                            <div class="modal-card p-4">
+                            <header class="modal-card-head">
+                                <p class="modal-card-title">${title}</p>
+                                <button class="delete" aria-label="close"></button>
+                            </header>
+                            <section class="modal-card-body">
+                                <img src ='${images}'><br>
+                                <b>Author: </b>${author}<br>
+                                <b>Category: </b>${category}<br>
+                                <b>Description: </b>${description}<br>
+                                <b>Bookid: </b>${bookid}<br>
+                                <b>Saleability: </b>${saleability}<br>
+                                <b>BuyLink: </b> ${buyLink}<br>
+                                <b>Publisher: </b>${publisher}<br>
+                                <b>PublishedDate: </b>${publishedDate}<br>
+                            </section>
+                            <footer class="modal-card-foot">
+                            </footer>
+                            </div>` ;
+
+            modal.querySelector('.delete').addEventListener('click', function () {
+            modal.classList.remove('is-active');
+        });
+
+        document.body.appendChild(modal);
     }
 
     function getMovie() {
@@ -176,6 +216,7 @@ $(document).ready(function () {
     }
 
     document.getElementById('return').addEventListener('click', function () {
+        localStorage.clear();
         window.location.href = 'index.html';
     });
 });

@@ -6,6 +6,12 @@
     <title>bookFlix</title>
     <!-- added style from Bulma framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script>
+           var checkedVisit = localStorage.getItem("visited");
+            if (checkedVisit) {
+                document.location.href = 'results.html';
+            }
+    </script>
 </head>
 <body>
   <nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
