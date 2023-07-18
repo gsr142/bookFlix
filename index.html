@@ -30,7 +30,7 @@
         <br/>
     </div>
     <!-- sections wrapping all the questions and options adding class and style -->
-    <div class="container is-widescreen">
+    <div class="container is-widescreen" id="selectContainer">
         <div class="notification is-primary has-background-info">
             <div class="card">
                 <div class="card-content">
@@ -39,7 +39,7 @@
                     <p>What is your favorite genre for movies?</p>
                   </div>
                   <div class="select">
-                    <select id="question1">
+                    <select id="question1" >
                       <!-- each option corresponds to a numerical value for the API call -->
                       <option>Select Answer</option>
                       <option value="1">Action</option>
@@ -64,7 +64,7 @@
                     <p>What is your favorite genre for books?</p>
                   </div>
                   <div class="select">
-                    <select id="question2">
+                    <select id="question2" required>
                       <option>Select Answer</option>
 
                       <option value="fiction">Fiction</option>
@@ -85,7 +85,7 @@
                     <p>Do you prefer the style of writing from which time-period?</p>
                   </div>
                   <div class="select">
-                    <select id="question3">
+                    <select id="question3" >
                       <option>Select Answer</option>
                       <option value="1990">Pre 1900</option>
                       <option value="1900-1950">1900 - 1950</option>
@@ -107,7 +107,7 @@
                     <p>Select the time-period that you'd like to watch a movie from:</p>
                   </div>
                   <div class="select">
-                    <select id="question4">
+                    <select id="question4" >
                       <!-- changed values to make easier for API call -->
                         <option>Select Answer</option>
                         <option value="1920">Pre 1950</option>                        
