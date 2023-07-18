@@ -29,7 +29,7 @@ $(document).ready(function () {
     //URL for making a request to the OMDB API
     var omdbInfo = "https://www.omdbapi.com/?apikey=" + omdbKey + "&plot=full&i="
 
-
+    //function that returns an array with dinamic IDs for title, start, genre and description from the results.html based on the index question
     function createMovieDisplay(index) {
         return ['#result' + index + '-movies-image', '#result' + index + '-title', '#result' + index + '-stars', '#result' + index + '-genre', '#result' + index + '-description'];
     }
@@ -49,18 +49,24 @@ $(document).ready(function () {
     button.addEventListener('click', getBook())
 
 
-
+    // variables to store book genre and year answers from string to array
     var bookGenre = JSON.parse(getChoices)[1];
     var bookYear = JSON.parse(getChoices)[2];
     // console.log(bookGenre);
+
+    // create variables to split the starting year and the end year of the answer to book year range
     var yearRange = bookYear.split('-');
+    // store the dates it in two different variables and convert its format from string to array
     var startYear = parseInt(yearRange[0]);
     var endYear = parseInt(yearRange[1]);
 
     var yearArray = [];
+    // for loop to push to an empty array  yearArray all the years containing in the selected range
     for (var year = startYear; year <= endYear; year++) {
         yearArray.push(year);
     };
+
+    //fetch request to retrieve data from the booksAPI and return error alert if it did not respond
     function getBook() {
         fetch(booksAPI)
             .then(function (response) {
@@ -78,26 +84,36 @@ $(document).ready(function () {
             });
     }
 
+    //function to display the book data retrieved from the books API
     function displayBook(data) {
 
         var matchedItems = [];
+        //store in a variable the retrieved reference to html relement with id bookContainer
         var Container = document.getElementById('bookContainer');
 
+        //clears the content of the html element from the variable Container
         Container.innerHTML = '';
 
+        //for loop to iterate through the items from the booksAPI
         for (var i = 0; i < data.items.length; i++) {
+            //store in a variable the published date for each book on the API
             var publishedDate = data.items[i].volumeInfo.publishedDate;
+            //converts the strings published date info into an integer, extracting only indexes 0 though 4 of the strings
             var yearPublished = parseInt(publishedDate.substring(0, 4));
 
+            //if statement to check if inside each year iterated from yearPublished is included on the yearArray array
+            //and if so, push that item from the API to the initially empty matchedItems array
             if (yearArray.includes(yearPublished)) {
                 matchedItems.push(data.items[i]);
 
+                //assign to the parameters the pulled info from the API for that index
                 var title = data.items[i].volumeInfo.title;
                 var author = data.items[i].volumeInfo.authors;
                 var category = data.items[i].volumeInfo.categories;
                 var description = data.items[i].volumeInfo.description;
                 var images = data.items[i].volumeInfo.imageLinks.smallThumbnail;
 
+                //recriate the columns div from html to display all books info returned in a column on the left side
                 var columnsDiv = document.createElement('div');
                 columnsDiv.classList.add('columns');
 
@@ -141,6 +157,7 @@ $(document).ready(function () {
 
     }
 
+    //fetch request to retrieve data from the movies API and return 'no data found' alert if it did not respond or the error type
     function getMovie() {
         fetch(streamingAPI)
             .then(function (response) {
@@ -151,7 +168,9 @@ $(document).ready(function () {
                         if (data.titles.length === 0) {
                             console.log("no data found");
                         }
+                        //for loop to iterate through the titles of the movies API, being executed through the length of the array with list of titles, and up to 4 times.
                         for (var i = 0; i < data.titles.length && i < 4; ++i) {
+                            //runs the getMovieInfo (to be described below) per loops (described above)
                             getMovieInfo(data.titles[i].imdb_id, createMovieDisplay(i))
                         }
                     });
@@ -163,14 +182,19 @@ $(document).ready(function () {
                 alert('Unable to connect to the server')
             });
     }
+
+
     function getMovieInfo(imdbId, arr) {
         var getOmdbInfo = omdbInfo + imdbId;
         console.log(getOmdbInfo)
+        //fetch request to retrieve data from the Omdb API and return 'no data found' alert if it did not respond or the error type
         fetch(getOmdbInfo)
             .then(function (response) {
                 if (response.ok) {
                     response.json().then(function (data) {
                         console.log(data)
+                        //use jQuery to modify html attributes (left side of the comma) specified by arr items
+                        //do it by setting value from that attribute to the value stored in the API address (right side of the comma)
                         $(arr[0]).attr('src', data.Poster);
                         $(arr[1]).text(data.Title);
                         $(arr[2]).text('Starring: ' + data.Actors);
@@ -181,6 +205,7 @@ $(document).ready(function () {
             });
     }
 
+    //function with event listener so that when the user clicks the return button (referred by the id 'return'), it will be rerouted to the initial index.html page 
     document.getElementById('return').addEventListener('click', function () {
         window.location.href = 'index.html';
     });
