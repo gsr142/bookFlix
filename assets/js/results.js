@@ -26,25 +26,11 @@ $(document).ready(function () {
         return ['#result' + index + '-movies-image', '#result' + index + '-title', '#result' + index + '-stars', '#result' + index + '-genre', '#result' + index + '-description'];
     }
 
-    //             });
-    //         } else {
-    //             alert('Error: ' + response.statusText);
-    //         }
-    //     })
-    //     .catch(function(error) {
-    //         alert('Unable to connect to the server')
-    //     });
-    // }
-
-    // //button for testing only. will be automatic on deployment
-    // var button = document.getElementById('button')
-    // button.addEventListener('click', getBook())
-
     getBook();
     getMovie();
+
     var bookGenre = JSON.parse(getChoices)[1];
     var bookYear = JSON.parse(getChoices)[2];
-    // console.log(bookGenre);
     var yearRange = bookYear.split('-');
     var startYear = parseInt(yearRange[0]);
     var endYear = parseInt(yearRange[1]);
@@ -102,7 +88,8 @@ $(document).ready(function () {
 
                 var imgBtn = document.createElement('a');
                 imgBtn.setAttribute('type', 'submit');
-                imgBtn.addEventListener('click', displayBookDetail.bind(null, title, author, category, description, images, bookid, buyLink, saleability, publisher, publishedDate));
+                imgBtn.addEventListener('click', displayBookDetail.bind(null, title, author, category, description, 
+                    images, bookid, buyLink, saleability, publisher, publishedDate));
 
                 var bookImage = document.createElement('img');
                 bookImage.src = images;
@@ -143,7 +130,8 @@ $(document).ready(function () {
 
     }
 
-    function displayBookDetail(title, author, category, description, images, bookid, buyLink, saleability, publisher, publishedDate) {
+    function displayBookDetail(title, author, category, description, images, bookid, buyLink, 
+        saleability, publisher, publishedDate) {
         var modal = document.createElement('div');
         modal.classList.add('modal', 'is-active');
         modal.innerHTML = `
