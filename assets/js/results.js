@@ -40,7 +40,7 @@ $(document).ready(function () {
 
     // //button for testing only. will be automatic on deployment
     var button = document.getElementById('button')
-    button.addEventListener('click', getBook)
+    button.addEventListener('click', getBook())
 
 
 
@@ -133,49 +133,49 @@ $(document).ready(function () {
             }
         }
 
-        //Use fetch to query the API, get suggestions.
-        function getMovie() {
-            fetch(streamingAPI)
-                .then(function (response) {
-                    if (response.ok) {
-                        response.json().then(function (data) {
-
-                            // console.log(data);
-                            if (data.titles.length === 0) {
-                                console.log("no data found");
-                            }
-                            for (var i = 0; i < data.titles.length && i < 4; ++i) {
-                                getMovieInfo(data.titles[i].imdb_id, createMovieDisplay(i))
-                            }
-                        });
-                    } else {
-                        alert('Error: ' + response.statusText);
-                    }
-                })
-                .catch(function (error) {
-                    alert('Unable to connect to the server')
-                });
-        }
-        function getMovieInfo(imdbId, arr) {
-            var getOmdbInfo = omdbInfo + imdbId;
-            console.log(getOmdbInfo)
-            fetch(getOmdbInfo)
-                .then(function (response) {
-                    if (response.ok) {
-                        response.json().then(function (data) {
-                            console.log(data)
-                            $(arr[0]).attr('src', data.Poster);
-                            $(arr[1]).text(data.Title);
-                            $(arr[2]).text('Starring: ' + data.Actors);
-                            $(arr[3]).text('Genre: ' + data.Genre);
-                            $(arr[4]).text('Plot: ' + data.Plot)
-                        });
-                    }
-                });
-        }
-
-        document.getElementById('return').addEventListener('click', function () {
-            window.location.href = 'index.html';
-        });
     }
+
+    function getMovie() {
+        fetch(streamingAPI)
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (data) {
+
+                        // console.log(data);
+                        if (data.titles.length === 0) {
+                            console.log("no data found");
+                        }
+                        for (var i = 0; i < data.titles.length && i < 4; ++i) {
+                            getMovieInfo(data.titles[i].imdb_id, createMovieDisplay(i))
+                        }
+                    });
+                } else {
+                    alert('Error: ' + response.statusText);
+                }
+            })
+            .catch(function (error) {
+                alert('Unable to connect to the server')
+            });
+    }
+    function getMovieInfo(imdbId, arr) {
+        var getOmdbInfo = omdbInfo + imdbId;
+        console.log(getOmdbInfo)
+        fetch(getOmdbInfo)
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (data) {
+                        console.log(data)
+                        $(arr[0]).attr('src', data.Poster);
+                        $(arr[1]).text(data.Title);
+                        $(arr[2]).text('Starring: ' + data.Actors);
+                        $(arr[3]).text('Genre: ' + data.Genre);
+                        $(arr[4]).text('Plot: ' + data.Plot)
+                    });
+                }
+            });
+    }
+
+    document.getElementById('return').addEventListener('click', function () {
+        window.location.href = 'index.html';
+    });
 });
