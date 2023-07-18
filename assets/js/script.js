@@ -26,31 +26,3 @@ var saveAnswer = function (event) {
 //runs the function saveAnswer upon clicking the submit button
 submitbtn.addEventListener("submit", saveAnswer)
 
-
-
-// fetch(booksAPI)
-//     .then(function(response){
-//         return response.json();
-//     })
-//     .then(function(data){
-//         console.log(data);
-//     })
-
-// fetch(streamingAPI)
-//     .then(function(response){
-//         return response.json();
-//     })
-//     .then(function(data){
-//         console.log(data);
-//     })
-
-
-        // // Initialize dropdown functionality
-        // var dropdown = document.querySelector('.dropdown');
-        // dropdown.addEventListener('click', function(event) {
-        //     event.stopPropagation();
-        //     dropdown.classList.toggle('is-active');
-        // });
-
-        
-
