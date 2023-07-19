@@ -10,7 +10,7 @@ This is a simple web application that provides book and movie suggestions based 
 
 ## Usage
 * Can't decide on a book or movie? Overwhelmed by choices?
-* [Visit the site](https://gsr142.github.io/bookFlix/index.html/)
+* [Visit the site](https://gsr142.github.io/bookFlix/)
 * Answer the questions by clicking the dropdown menus.
 * Click the submit button.
 * Choose from a list of books and movies based on your choices.
