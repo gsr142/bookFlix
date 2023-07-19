@@ -16,7 +16,6 @@ This is a simple web application that provides book and movie suggestions based 
 * Choose from a list of books and movies based on your choices.
 
 
-![screenshot](./assets/images/screenshot.png)
 ![screenshot](./assets/images/bookFlix.gif)
 
 ## Tools Used
