@@ -18,7 +18,7 @@ var saveAnswer = function (event) {
     // Iterate through each select element and check if an answer is selected
     for (var i = 0; i < selectElements.length; i++) {
         if (selectElements[i].value === "Select Answer") {
-            selectElements[i].style.borderColor = 'red'; // Add 'incomplete' class to highlight the unanswered question
+            selectElements[i].style.borderColor = 'red';
         } else {
             // selectElements[i].classList.remove('incomplete'); // Remove 'incomplete' class if an answer is selected
             var visited = true;

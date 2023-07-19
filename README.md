@@ -10,13 +10,14 @@ This is a simple web application that provides book and movie suggestions based 
 
 ## Usage
 * Can't decide on a book or movie? Overwhelmed by choices?
-* [Visit the site](https://gsr142.github.io/bookFlix/index.html/)
+* [Visit the site](https://gsr142.github.io/bookFlix/)
 * Answer the questions by clicking the dropdown menus.
 * Click the submit button.
 * Choose from a list of books and movies based on your choices.
 
 
 ![screenshot](./assets/images/screenshot.png)
+![screenshot](./assets/images/bookFlix.gif)
 
 ## Tools Used
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
@@ -31,13 +32,15 @@ This is a simple web application that provides book and movie suggestions based 
 ## Authors
 ### Greg Richardson
 
-* gsr142@gmail.com
 * [GitHub](https://github.com/gsr142)
+* gsr142@gmail.com
 
 
 ### Virginia Freitas
-* [GitHub](https://github.com/virginiafreitas)
 
+* [GitHub](https://github.com/virginiafreitas)
+virginiacdefreitas@gmail.com
 
 ### Ahkar Hein
+
 * [GitHub](https://github.com/ahkar-hein)
