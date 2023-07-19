@@ -17,6 +17,7 @@ This is a simple web application that provides book and movie suggestions based 
 
 
 ![screenshot](./assets/images/screenshot.png)
+![screenshot](./assets/images/bookFlix.gif)
 
 ## Tools Used
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
