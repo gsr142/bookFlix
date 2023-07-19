@@ -38,8 +38,9 @@ This is a simple web application that provides book and movie suggestions based 
 ### Virginia Freitas
 
 * [GitHub](https://github.com/virginiafreitas)
-virginiacdefreitas@gmail.com
+* virginiacdefreitas@gmail.com
 
 ### Ahkar Hein
 
 * [GitHub](https://github.com/ahkar-hein)
+* ahkarhein04@gmail.com
