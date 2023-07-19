@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>bookFlix</title>
     <!-- added style from Bulma framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -10,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
 </head>
-<body>
+<body id="outer-background">
     <!-- added style similar to intro page -->
     <nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
@@ -33,7 +34,7 @@
     <div class="container is-widescreen">
       <div class="notification is-primary has-background-info">
         <!-- wraps in a card all the results information -->
-          <div class="card">
+          <div class="card" id="background">
               <div class="card-content">
                 <!-- display both books and movies information in the same row -->
                 <div class="row">
@@ -59,7 +60,7 @@
 
                             <div class="column is-3">
                               <!-- placeholder image to be replaced by API on javascript -->
-                              <img id="result1-movies-image" src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="add name of the book here" width="120" height="150" >
+                              <img id="result1-movies-image" src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="poster of 1st book suggestion" width="120" height="150" >
                             </div>
                             <!-- displays the image on a column on the left side -->
                             <div class="column">
@@ -76,7 +77,7 @@
                         <div class="row">
                           <div class="columns">
                             <div class="column is-3">
-                              <img id="result2-movies-image" src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="add name of the book here" width="120" height="150" >
+                              <img id="result2-movies-image" src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="poster of 2nd book suggestion" width="120" height="150" >
                             </div>
                             <div class="column">
                               <ul>
@@ -92,7 +93,7 @@
                         <div class="row">
                           <div class="columns">
                             <div class="column is-3">
-                              <img id="result3-movies-image" src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="add name of the book here" width="120" height="150" >
+                              <img id="result3-movies-image" src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="poster of 3rd book suggestion" width="120" height="150" >
                             </div>
                             <div class="column">
                               <ul>
@@ -108,7 +109,7 @@
                         <div class="row">
                           <div class="columns">
                             <div class="column is-3">
-                              <img id="result4-movies-image" src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="add name of the book here" width="120" height="150" >
+                              <img id="result4-movies-image" src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="poster of 4th book suggestion" width="120" height="150" >
                             </div>
                             <div class="column">
                               <ul>
