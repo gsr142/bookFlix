@@ -31,13 +31,15 @@ This is a simple web application that provides book and movie suggestions based 
 ## Authors
 ### Greg Richardson
 
-* gsr142@gmail.com
 * [GitHub](https://github.com/gsr142)
+* gsr142@gmail.com
 
 
 ### Virginia Freitas
-* [GitHub](https://github.com/virginiafreitas)
 
+* [GitHub](https://github.com/virginiafreitas)
+virginiacdefreitas@gmail.com
 
 ### Ahkar Hein
+
 * [GitHub](https://github.com/ahkar-hein)
