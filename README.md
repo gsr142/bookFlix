@@ -28,6 +28,8 @@ This is a simple web application that provides book and movie suggestions based 
 * [Watchmode](https://api.watchmode.com/)
 * [OMDB API](https://www.omdbapi.com/)
 
+## License
+[![GitHub License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ## Authors
 ### Greg Richardson
 
